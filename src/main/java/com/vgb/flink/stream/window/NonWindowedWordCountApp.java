@@ -10,7 +10,7 @@ import org.apache.flink.util.Collector;
 import java.util.stream.Stream;
 
 
-public class WindowedWordCountApp {
+public class NonWindowedWordCountApp {
 
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env
@@ -32,7 +32,6 @@ public class WindowedWordCountApp {
                     }
                 })
                 .keyBy(0)
-                .timeWindow(Time.seconds(5))
                 .sum(1);
 
         // Print the results to the console. Note that here single-threaded printed is used, rather than multi-threading.
